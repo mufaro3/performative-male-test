@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    
+    <title>Your Performative Male Score</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="prefetch" href="/score.html" as="document">
+  </head>
+  <body>
+
+    <center><h1>The Performative Male Test</h1></center>
+    <p style="width:50%;padding-left:25%">Male performance is at an all-time high, so why not go for gold. Feel absolutely free to treat this like a bucket list. Completion of all items on this list will result in you being the perfect Bushwick man.</p>
+    <br/>
+
+    <h2>Your score:</h2>
+    <h1 id="score">--</h1>
+
+    <p>Thank you for your submission!</p>
+    <strong id='rank'></strong>
+    
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const score = params.get("score");
+
+      const ranks = [
+	  'Fully non-performative',
+	  'Average Joe',
+	  'Reasonably performative',
+	  'TikTok male',
+	  'Bushwick Warrior'
+      ]
+      
+      if (score) {
+          document.getElementById("score").textContent = Math.round(score * 100) + '%';
+	  document.getElementById('rank').textContent = 'Rank: ' + ranks[Math.floor(score * ranks.length)]
+      }
+    </script>
+  </body>
+</html>
